@@ -29,7 +29,6 @@ wss.on('connection', (ws) => {
   ws.on('message', event => {
     let message = JSON.parse(event)
     message.id = uuidv4();
-    console.dir(message);
     wss.clients.forEach(client => {
         client.send(JSON.stringify(message));
     });
